@@ -1,4 +1,5 @@
 
+import { dashboardEventBus } from '../../main'
 export default {
     name: 'photo-recognition',
     components: {

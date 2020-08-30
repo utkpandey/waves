@@ -7,7 +7,8 @@
     <div class="left-section">
 
       <div class="display-photo">
-        <img src="../../assets/facial-rec-photo.jpg">
+        <img class="img-display" v-if="!image" src="../../assets/facial-rec-photo.jpg">
+        <img class="img-display" v-else :src="image">
       </div>
       <div class="upload-photo">
         <!-- <p>Upload Image</p>
@@ -24,8 +25,8 @@
             <!-- <input class="upload-btn" type="file" @change="onFileChange"> -->
           </div>
           <div v-else>
-            <img :src="image" />
-            <button @click="removeImage">Remove image</button>
+            <!-- <img :src="image" /> -->
+            <button class="remove-img" @click="removeImage">Remove image</button>
           </div>
         </div>
       </div>
