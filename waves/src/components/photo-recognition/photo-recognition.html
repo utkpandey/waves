@@ -15,7 +15,13 @@
         <div id="app">
           <div v-if="!image">
             <h1>Select an image</h1>
-            <input class="upload-btn" type="file" @change="onFileChange">
+            
+            <label for="file-upload" class="custom-file-upload">
+              <i class="fa fa-cloud-upload"></i> Custom Upload
+          </label>
+          <input id="file-upload" type="file" @change="onFileChange"/>
+
+            <!-- <input class="upload-btn" type="file" @change="onFileChange"> -->
           </div>
           <div v-else>
             <img :src="image" />
