@@ -6,7 +6,9 @@ export default {
     },
     data () {
       return {
-       
+        expandNews: false,
+        expandSingle: false,
+        amount: 99
       }
     }
   }

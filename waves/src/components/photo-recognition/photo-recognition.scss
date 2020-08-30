@@ -1,0 +1,26 @@
+.photo-recognition{
+    font-family: AmazonEmber,Helvetica Neue,Helvetica,Arial,sans-serif;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    height: 100vh;
+   
+
+    .photo-body{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        .left-section{
+            display: grid;
+    grid-template-rows: 2fr 1fr;
+        }
+        .right-section{
+   
+            .progress-bar{
+                width: 90%;
+            }
+          
+            
+             
+        }
+    }
+}

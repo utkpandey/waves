@@ -1,4 +1,99 @@
 <section class="photo-recognition">
-  <div>Photo Recognition</div>
-  
+  <div class="photo-header">
+    <h1>Facial Analysis</h1>
+    <p>Get full analysis of facial attributes, including confidence scrores.</p>
+  </div>
+  <div class="photo-body">
+    <div class="left-section">
+
+      <div class="display-photo">
+        <img src="../../assets/facial-rec-photo.jpg">
+      </div>
+      <div class="upload-photo">
+        <p>Upload Image</p>
+        <md-button class="md-raised md-primary">Upload</md-button>
+      </div>
+
+    </div>
+    <div class="right-section">
+
+      <div class="full-control">
+        <div class="list">
+          <md-list :md-expand-single="expandSingle">
+            <md-list-item md-expand :md-expanded.sync="expandNews">
+              <!-- <md-icon>whatshot</md-icon> -->
+              <span class="md-list-item-text">Faces | Confidence</span>
+    
+              <md-list slot="md-expand">
+                <md-list-item class="md-inset">
+                  <div class="progress-bar">
+                    <span>Looks like a face</span>
+                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
+                  </div>
+                </md-list-item>
+                <md-list-item class="md-inset">
+                  <div class="progress-bar">
+                    <span>Looks like a face</span>
+                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
+                  </div>
+                </md-list-item>
+                <md-list-item class="md-inset">
+                  <div class="progress-bar">
+                    <span>Looks like a face</span>
+                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
+                  </div>
+                </md-list-item>
+                <md-list-item class="md-inset">
+                  <div class="progress-bar">
+                    <span>Looks like a face</span>
+                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
+                  </div>
+                </md-list-item>
+                <md-list-item class="md-inset">
+                  <div class="progress-bar">
+                    <span>Looks like a face</span>
+                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
+                  </div>
+                </md-list-item>
+              </md-list>
+            </md-list-item>
+    
+            <md-list-item md-expand>
+              <!-- <md-icon>videogame_asset</md-icon> -->
+              <span class="md-list-item-text">Request</span>
+    
+              <md-list slot="md-expand">
+                <md-list-item class="md-inset">
+                  Photo bro
+                </md-list-item>
+               
+            
+              </md-list>
+            </md-list-item>
+    
+            <md-list-item md-expand>
+              <!-- <md-icon>video_library</md-icon> -->
+              <span class="md-list-item-text">Response</span>
+    
+              <md-list slot="md-expand">
+                <md-list-item class="md-inset"> {"abc":"1"}</md-list-item>
+               
+              </md-list>
+            </md-list-item>
+    
+            <!-- <md-list-item>
+              <md-icon>shopping_basket</md-icon>
+              <span class="md-list-item-text">Shop</span>
+            </md-list-item> -->
+          </md-list>
+        </div>
+        <!-- <div class="control">
+          <md-switch v-model="expandSingle">Expand Only One</md-switch>
+          <md-checkbox v-model="expandNews">Expand News</md-checkbox>
+        </div> -->
+      </div>
+
+    </div>
+
+  </div>
   </section>
