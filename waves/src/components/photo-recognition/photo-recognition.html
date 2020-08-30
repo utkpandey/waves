@@ -10,8 +10,18 @@
         <img src="../../assets/facial-rec-photo.jpg">
       </div>
       <div class="upload-photo">
-        <p>Upload Image</p>
-        <md-button class="md-raised md-primary">Upload</md-button>
+        <!-- <p>Upload Image</p>
+        <md-button class="md-raised md-primary"  >Upload</md-button> -->
+        <div id="app">
+          <div v-if="!image">
+            <h1>Select an image</h1>
+            <input class="upload-btn" type="file" @change="onFileChange">
+          </div>
+          <div v-else>
+            <img :src="image" />
+            <button @click="removeImage">Remove image</button>
+          </div>
+        </div>
       </div>
 
     </div>

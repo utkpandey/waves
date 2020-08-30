@@ -3,6 +3,7 @@
     display: grid;
     grid-template-rows: 100px 1fr;
     height: 100vh;
+    
    
 
     .photo-body{
@@ -12,6 +13,21 @@
         .left-section{
             display: grid;
     grid-template-rows: 2fr 1fr;
+            .upload-photo{
+                #app {
+                    text-align: left;
+                  }
+                  img {
+                    width: 30%;
+                    margin: auto;
+                    display: block;
+                    margin-bottom: 10px;
+                  }
+                  button {
+                    
+                  }
+                 
+            }
         }
         .right-section{
    
