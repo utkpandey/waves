@@ -1,9 +1,19 @@
+import photorecognition from '../photo-recognition/photo-recognition.vue'
+import videoRecognition from '../video-recognition/video-recognition.vue'
 export default {
     name: 'navigation',
+    components: {
+      photorecognition,
+      videoRecognition
+     
+    },
     data () {
       return {
         menuVisible: false,
-        OptionToDisplay:''
+        OptionToDisplay:'',
+        isPhotoRecognitionSelected:true,
+        isVideoRecognitionSelected:false
+
       }
     },
     methods: {
@@ -11,19 +21,17 @@ export default {
         this.menuVisible = !this.menuVisible
       },
       selectedNavigationOption(selectedValue){
-        switch (selectedValue) {
+        switch (selectedValue) 
+        {
           case 1:
-            this.OptionToDisplay='option 1'
+            this.isPhotoRecognitionSelected=true;
+            this.isVideoRecognitionSelected=false
             break;
           case 2:
-            this.OptionToDisplay='option 2'
+            this.isPhotoRecognitionSelected=false;
+            this.isVideoRecognitionSelected=true
             break;
-          case 3:
-            this.OptionToDisplay='option 3'
-            break;
-            case 4:
-            this.OptionToDisplay='option 4'
-            break;
+          
         }
       }
     }
