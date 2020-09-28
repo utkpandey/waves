@@ -16,11 +16,11 @@
         <div id="app">
           <div v-if="!image">
             <h1>Select an image</h1>
-            
+
             <label for="file-upload" class="custom-file-upload">
               <i class="fa fa-cloud-upload"></i> Custom Upload
-          </label>
-          <input id="file-upload" type="file" @change="onFileChange"/>
+            </label>
+            <input id="file-upload" type="file" @change="onFileChange" />
 
             <!-- <input class="upload-btn" type="file" @change="onFileChange"> -->
           </div>
@@ -38,79 +38,67 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
             <md-list-item md-expand :md-expanded.sync="expandNews">
-              <!-- <md-icon>whatshot</md-icon> -->
-              <span class="md-list-item-text">Faces | Confidence</span>
-    
+              <span class="md-list-item-text">Person</span>
+              
               <md-list slot="md-expand">
-                <md-list-item class="md-inset">
-                  <div class="progress-bar">
-                    <span>Looks like a face</span>
-                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
-                  </div>
-                </md-list-item>
-                <md-list-item class="md-inset">
-                  <div class="progress-bar">
-                    <span>Looks like a face</span>
-                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
-                  </div>
-                </md-list-item>
-                <md-list-item class="md-inset">
-                  <div class="progress-bar">
-                    <span>Looks like a face</span>
-                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
-                  </div>
-                </md-list-item>
-                <md-list-item class="md-inset">
-                  <div class="progress-bar">
-                    <span>Looks like a face</span>
-                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
-                  </div>
-                </md-list-item>
-                <md-list-item class="md-inset">
-                  <div class="progress-bar">
-                    <span>Looks like a face</span>
-                    <md-progress-bar md-mode="determinate" :md-value="amount"></md-progress-bar> {{ amount }}%
-                  </div>
+                <md-list-item md-expand v-for="(names,index) in Person">
+                  <!-- <md-icon>videogame_asset</md-icon> -->
+                  <span class="md-list-item-text">{{names.Name}}</span>
+                  <md-list slot="md-expand">
+                    <md-list-item class="md-inset">
+                      <div class="progress-bar">
+                        <div class="smile">
+                      <span>Smile - {{names.Smile.Value}}<br></span>
+                    
+                          <md-progress-bar md-mode="determinate" :md-value="smilePercent(index)"></md-progress-bar> 
+                         <span style="margin-left: 2vw;"> {{names.Smile.Confidence}}% </span> 
+                      </div>
+                      <div class="glasses" style="margin-top: 2vh;">
+                        <span>Eyeglasses - {{names.Eyeglasses.Value}}<br></span>
+                        
+                            <md-progress-bar md-mode="determinate" :md-value="eyeglassesPercent(index)"></md-progress-bar> 
+                            <span style="margin-left: 2vw;"> {{names.Eyeglasses.Confidence}}% </span>
+                        </div>
+                        <div class="gender" style="margin-top: 2vh;">
+                          <span>Gender - {{names.Gender.Value}}</span>
+                         
+                              <md-progress-bar md-mode="determinate" :md-value="genderConfidence(index)"></md-progress-bar> 
+                              <span style="margin-left: 2vw;">{{names.Gender.Confidence}}%</span>
+                          </div>
+                          <div class="eyesOpen" style="margin-top: 2vh;">
+                            <span>EyesOpen - {{names.EyesOpen.Value}}<br></span>
+                           
+                                <md-progress-bar md-mode="determinate" :md-value="EyesOpenPercentage(index)"></md-progress-bar>
+                                <span style="margin-left: 2vw;"> {{names.EyesOpen.Confidence}}% </span> 
+                            </div>
+                    </div>
+                    </md-list-item>
+                  </md-list>
                 </md-list-item>
               </md-list>
             </md-list-item>
-    
-            <md-list-item md-expand>
-              <!-- <md-icon>videogame_asset</md-icon> -->
-              <span class="md-list-item-text">Request</span>
-    
-              <md-list slot="md-expand">
-                <md-list-item class="md-inset">
-                  Photo bro
-                </md-list-item>
-               
-            
-              </md-list>
-            </md-list-item>
-    
-            <md-list-item md-expand>
-              <!-- <md-icon>video_library</md-icon> -->
-              <span class="md-list-item-text">Response</span>
-    
-              <md-list slot="md-expand">
-                <md-list-item class="md-inset"> {"abc":"1"}</md-list-item>
-               
-              </md-list>
-            </md-list-item>
-    
-            <!-- <md-list-item>
-              <md-icon>shopping_basket</md-icon>
-              <span class="md-list-item-text">Shop</span>
-            </md-list-item> -->
           </md-list>
         </div>
-        <!-- <div class="control">
-          <md-switch v-model="expandSingle">Expand Only One</md-switch>
-          <md-checkbox v-model="expandNews">Expand News</md-checkbox>
-        </div> -->
       </div>
 
     </div>
 
+    <div>
+      <md-dialog :md-active.sync="showDialog">
+
+        <md-dialog-title class="dialog-text" style="text-align: center;" v-model="dialogMsgToDisplay">
+          {{dialogMsgToDisplay}}</md-dialog-title>
+        <div class="spinner">
+          <md-progress-bar v-if="!completed" md-mode="indeterminate"></md-progress-bar>
+
+        </div>
+        <md-dialog-actions v-if="completed">
+          <md-button class="md-primary" @click="dialogClose">OK</md-button>
+        </md-dialog-actions>
+      </md-dialog>
+
+      <!-- <md-button class="md-primary md-raised" @click="showDialog = true">Show Dialog</md-button>  -->
+    </div>
+
   </div>
-  </section>
+</section>

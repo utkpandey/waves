@@ -66,5 +66,17 @@
             
              
         }
+         
     }
+    .md-dialog /deep/.md-dialog-container {
+        max-width: 768px;
+        
+      }
+      
+      .md-progress-bar {
+        margin: 24px;
+        
+      }
+      
+     
 }
