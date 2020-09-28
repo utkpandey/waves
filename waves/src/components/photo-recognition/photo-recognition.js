@@ -513,8 +513,8 @@ export default {
   },
   methods: {
     onFileChange(e) {
-      self.completed = false;
-      this.showAttribures=false;
+      //self.completed = false;
+      //this.showAttribures=false;
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
         return;
@@ -561,6 +561,7 @@ export default {
     dialogClose() {
       this.showDialog = false;
       this.completed = false;
+      this.dialogMsgToDisplay= 'Uploading...';
     },
     smilePercent(i){
       return this.Person[i].Smile.Confidence

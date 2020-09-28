@@ -84,7 +84,7 @@
     </div>
 
     <div>
-      <md-dialog :md-active.sync="showDialog">
+      <md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false">
 
         <md-dialog-title class="dialog-text" style="text-align: center;" v-model="dialogMsgToDisplay">
           {{dialogMsgToDisplay}}</md-dialog-title>
