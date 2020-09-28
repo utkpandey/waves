@@ -15,10 +15,10 @@
         <md-button class="md-raised md-primary"  >Upload</md-button> -->
         <div id="app">
           <div v-if="!image">
-            <h1>Select an image</h1>
-
+            <h1>Select a video</h1>
+           
             <label for="file-upload" class="custom-file-upload">
-              <i class="fa fa-cloud-upload"></i> Custom Upload
+              <i class="fa fa-cloud-upload"></i> Upload
             </label>
             <input id="file-upload" type="file" @change="onFileChange" />
 
@@ -26,7 +26,7 @@
           </div>
           <div v-else>
             <!-- <img :src="image" /> -->
-            <button class="remove-img" @click="removeImage">Remove image</button>
+            <button class="remove-img" @click="removeImage" style="margin-left: 15vw;">Remove image</button>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
 
       <div class="full-control">
         <div class="list">
-          <md-list :md-expand-single="expandSingle">
+          <md-list :md-expand-single="expandSingle" v-if="showAttribures">
             <md-list-item md-expand :md-expanded.sync="expandNews">
               <span class="md-list-item-text">Person</span>
               

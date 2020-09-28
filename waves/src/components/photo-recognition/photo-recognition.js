@@ -506,13 +506,15 @@ export default {
 
         },
        
-      ]
+      ],
+      showAttribures:false
     }
 
   },
   methods: {
     onFileChange(e) {
       self.completed = false;
+      this.showAttribures=false;
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
         return;
@@ -526,7 +528,7 @@ export default {
 
 
       reader.onload = (e) => {
-        this.image = e.target.result;
+       // this.image = e.target.result;
         //this.dialogMsgToDisplay='Analysing...'
 
         var self = this;
@@ -537,9 +539,11 @@ export default {
         setTimeout(function () {
           self.dialogMsgToDisplay = 'Completed!';
           self.completed = true;
+          self.image="src/assets/video-img.png"
+          self.showAttribures=true;
         }, 10000);
         //   this.dialogMsgToDisplay='Completed!' }, 5000);
-
+        
 
 
 
@@ -551,6 +555,7 @@ export default {
     removeImage: function (e) {
       this.image = '';
       self.completed = false;
+      this.showAttribures=false;
 
     },
     dialogClose() {
